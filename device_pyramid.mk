@@ -17,12 +17,16 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
+# Device ID
+PRODUCT_NAME := full_pyramid
+PRODUCT_DEVICE := pyramid
+
 # common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/pyramid/overlay
 
-# GPS
+# GPS and sensors
 PRODUCT_PACKAGES += \
     gps.pyramid
 
@@ -30,7 +34,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
-# Wifi
+## The gps config appropriate for this device
+PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/gps.conf
+
+
 # Bluetooth firmware
 $(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
 
@@ -51,7 +58,7 @@ PRODUCT_COPY_FILES += \
     device/htc/pyramid/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
     device/htc/pyramid/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
 
-# Some misc configeration files
+# Some misc configuration files
 PRODUCT_COPY_FILES += \
     device/htc/pyramid/vold.fstab:system/etc/vold.fstab \
     device/htc/pyramid/configs/99kernel:system/etc/init.d/99kernel
@@ -71,6 +78,8 @@ PRODUCT_COPY_FILES += \
 
 # HTC BT Audio tune
 PRODUCT_COPY_FILES += device/htc/pyramid/dsp/AudioBTID.csv:system/etc/AudioBTID.csv
+
+# QC thermald config
 
 # Sound configs
 PRODUCT_COPY_FILES += \
@@ -102,9 +111,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-# Bluetooth firmware
-$(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
-
 ## misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
@@ -122,10 +128,3 @@ $(call inherit-product, device/htc/pyramid/media_a1026.mk)
 $(call inherit-product, device/htc/pyramid/media_htcaudio.mk)
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-
-# Discard inherited values and use our own instead.
-PRODUCT_DEVICE := pyramid
-PRODUCT_NAME := pyramid
-PRODUCT_BRAND := htc
-PRODUCT_MODEL := Sensation
-PRODUCT_MANUFACTURER := HTC
