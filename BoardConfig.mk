@@ -36,6 +36,12 @@ BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=pyramid no_console_suspend=1
 TARGET_KERNEL_CONFIG := pyramid_defconfig
 
+# Kernel [Build]
+TARGET_KERNEL_CONFIG := ChronicKernel_defconfig
+TARGET_KERNEL_SOURCE := kernel/htc/msm8660
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro
+BUILD_KERNEL := true
+
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
 
