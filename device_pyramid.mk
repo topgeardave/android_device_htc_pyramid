@@ -26,6 +26,10 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/pyramid/overlay
 PRODUCT_PACKAGES += \
     gps.pyramid
 
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
+
 # Wifi
 # Bluetooth firmware
 $(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
