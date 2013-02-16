@@ -27,6 +27,9 @@ PRODUCT_PACKAGES += \
     gps.pyramid
 
 # Wifi
+# Bluetooth firmware
+$(call inherit-product, device/htc/msm8660-common/bcm_hcd.mk)
+
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
 # Boot ramdisk setup
