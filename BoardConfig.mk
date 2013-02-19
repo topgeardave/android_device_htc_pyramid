@@ -44,9 +44,8 @@ TARGET_KERNEL_SOURCE := kernel/htc/msm8660
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro
 BUILD_KERNEL := true
 
-# Wifi
-WIFI_DRIVER_MODULE_NAME          := bcmdhd
-WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/bcmdhd.ko"
+# Bluetooth/Wifi
+-include device/htc/msm8660-common/bcmdhd.mk
 
 # Qcom GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := pyramid
