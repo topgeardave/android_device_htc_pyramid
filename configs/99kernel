@@ -152,10 +152,6 @@ case ${BADASS} in
 		echo 80 > /sys/devices/system/cpu/cpufreq/badass/busy_clr_threshold;
 		echo 8 > /sys/devices/system/cpu/cpufreq/badass/semi_busy_threshold;
 		echo 4 > /sys/devices/system/cpu/cpufreq/badass/semi_busy_clr_threshold;
-		echo 150 > /sys/devices/system/cpu/cpufreq/badass/gpu_semi_busy_threshold;
-		echo 50 > /sys/devices/system/cpu/cpufreq/badass/gpu_semi_busy_clr_threshold;
-		echo 300 > /sys/devices/system/cpu/cpufreq/badass/gpu_busy_clr_threshold;
-		echo 450 > /sys/devices/system/cpu/cpufreq/badass/gpu_busy_threshold;
 	;;
 	2)
 		$L "badass: setting balanced configuration"
@@ -166,10 +162,6 @@ case ${BADASS} in
 		echo 100 > /sys/devices/system/cpu/cpufreq/badass/busy_clr_threshold;
 		echo 14 > /sys/devices/system/cpu/cpufreq/badass/semi_busy_threshold;
 		echo 6 > /sys/devices/system/cpu/cpufreq/badass/semi_busy_clr_threshold;
-		echo 260 > /sys/devices/system/cpu/cpufreq/badass/gpu_semi_busy_threshold;
-		echo 180 > /sys/devices/system/cpu/cpufreq/badass/gpu_semi_busy_clr_threshold;
-		echo 700 > /sys/devices/system/cpu/cpufreq/badass/gpu_busy_threshold;
-		echo 500 > /sys/devices/system/cpu/cpufreq/badass/gpu_busy_clr_threshold;
 	;;
 	3)
 		$L "badass: setting battery saving configuration"
@@ -179,10 +171,6 @@ case ${BADASS} in
 		echo 110 > /sys/devices/system/cpu/cpufreq/badass/busy_clr_threshold;
 		echo 80 > /sys/devices/system/cpu/cpufreq/badass/semi_busy_threshold;
 		echo 20 > /sys/devices/system/cpu/cpufreq/badass/semi_busy_clr_threshold;
-		echo 300 > /sys/devices/system/cpu/cpufreq/badass/gpu_semi_busy_threshold;
-		echo 250 > /sys/devices/system/cpu/cpufreq/badass/gpu_semi_busy_clr_threshold;
-		echo 750 > /sys/devices/system/cpu/cpufreq/badass/gpu_busy_threshold;
-		echo 600 > /sys/devices/system/cpu/cpufreq/badass/gpu_busy_clr_threshold;
 	;;
 esac
 echo ${CUR_GOV} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
