@@ -67,11 +67,19 @@ DD=200000000;
 BADASS=2
 
 
+# Enable Sweep2Wake
+# 0 = disabled (default)
+# 1 = enabled
+# 2 = enabled (with no button backlight)
+SWEEP=0;
+
+
 # Enable Fastcharge
 # 0 = disabled
 # 1 = substitute AC to USB charging always
 # 2 = substitute AC to USB charging only if there is no USB peripheral detected
 FASTCHARGE=0;
+
 
 # Fsync Control
 # Disabled by default (recomended)
@@ -137,6 +145,28 @@ FSYNC=2;
 # Config USB forced fastcharge
     chmod 644 /sys/kernel/fast_charge/force_fast_charge
     echo "$FASTCHARGE" > /sys/kernel/fast_charge/force_fast_charge
+
+
+# Config Sweep2Wake (with compatibility with NLJ's fix)
+    chmod 644 /sys/android_touch/sweep2wake
+    echo "$SWEEP" > /sys/android_touch/sweep2wake
+	if [ "$SWEEP" = "0" ]
+	then
+    		chmod 644 /sys/android_touch/sweep2wake
+   		echo 0 > /sys/android_touch/sweep2wake
+	fi
+
+	if [ "$SWEEP" = "1" ]
+	then
+    		chmod 666 /sys/android_touch/sweep2wake
+   		echo 1 > /sys/android_touch/sweep2wake
+	fi
+
+	if [ "$SWEEP" = "2" ]
+	then
+    		chmod 666 /sys/android_touch/sweep2wake
+   		echo 2 > /sys/android_touch/sweep2wake
+	fi
 
 
 # Config badass CPU Gonvernor
