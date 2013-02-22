@@ -10,14 +10,17 @@
 # For better battery life switch to badass
 # Kernel Default: ondemand
 # Possible values
-# 1 = badass
-# 2 = ondemand
-# 3 = intelliondemand
-# 4 = interactive
-# 5 = lagfee
-# 6 = performance
-# 0 = disabled (use kernel default)
-GOV=0;
+#  badass
+#  lazy
+#  conservative
+#  userspace
+#  powersave
+#  ondemand
+#  intelliondemand
+#  interactive
+#= lagfee
+#  performance
+GOV=ondemand;
 
 
 # Config I/O scheduler
@@ -93,36 +96,8 @@ FSYNC=2;
 ################# DON'T CHANGE ANYTHING BELOW THIS LINE #################
 
 
-# Config Default CPU Gonvernor
-	if [ "$GOV" = "1" ]
-	then
-   		 echo badass > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	fi
-
-	if [ "$GOV" = "2" ]
-	then
-   		 echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	fi
-
-	if [ "$GOV" = "3" ]
-	then
-   		 echo intelliondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	fi
-
-	if [ "$GOV" = "4" ]
-	then
-   		 echo interactive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	fi
-
-	if [ "$GOV" = "5" ]
-	then
-   		 echo lagfree > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	fi
-
-	if [ "$GOV" = "6" ]
-	then
-   		 echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
-	fi
+## Config CPU governor
+    echo "$GOV" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
        
 
 # Config 3D GPU setting
