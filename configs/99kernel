@@ -15,7 +15,7 @@
 #  interactive
 #= lagfee
 #  performance
-GOV=ondemand;
+GOV=badass;
 
 
 # Config I/O scheduler
@@ -29,7 +29,7 @@ IO=sio;
 
 # Config CPU max frequency
 # Default: 1566000 (1566Mhtz)
-# Overclockable to - 1944000 (1944Mhtz)
+# Overclockable to - 1836000 (1836Mhtz)
 # for badass set to 1566mhtz (best performance/battery life)
 MAXFREQ=1566000;
 
@@ -94,6 +94,7 @@ FSYNC=2;
 ## Config CPU governor
     echo "$GOV" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     echo "$GOV" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+
 
 # Config 3D GPU setting
     chmod 644 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
