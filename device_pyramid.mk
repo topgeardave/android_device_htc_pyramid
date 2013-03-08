@@ -121,13 +121,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #### Goo Manager support
 PRODUCT_COPY_FILES +=  \
-    vendor/goo/goomanager.apk:system/app/goomanager.apk
+    device/htc/pyramid/proprietary/goo/goomanager.apk:system/app/goomanager.apk
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=Albinoman887 \
     ro.goo.board=pyramid \
     ro.goo.rom=cm101kangs \
     ro.goo.version=$(shell date +%Y%m%d-%T)
+
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/htc/pyramid/pyramid-vendor.mk)
 
