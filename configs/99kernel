@@ -52,6 +52,13 @@ FASTCHARGE=0;
 FSYNC=2;
 
 
+# TUN
+# Disabled by default
+# 0 = Disabled
+# 1 = Enabled
+TUN=0
+
+
 # End of configurable options #
 
 
@@ -149,4 +156,12 @@ echo ${CUR_GOV} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 if [ "$FSYNC" = "2" ]
 then
     echo "0" > sys/class/misc/fsynccontrol/fsync_enabled
+fi
+
+# Config TUN
+if [ "${TUN}" = "1" ]; then
+	if [ -e /system/lib/modules/tun.ko ] ; then
+		insmod /system/lib/modules/tun.ko
+		$L "Inserted tun kernel module."
+	fi
 fi
