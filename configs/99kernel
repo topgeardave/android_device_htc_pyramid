@@ -6,6 +6,40 @@
 # Configure your options here #
 
 
+# Config default CPU Gonvernor (Disabled by default: When disabled uses internal Kernel setting)
+# For better battery life switch to badass
+# Kernel Default: ondemand
+# Possible values
+#  badass
+#  ondemand
+#  interactive
+#= lagfee
+#  performance
+GOV=badass;
+
+
+# Config I/O scheduler
+# deadline
+# cfq
+# noop
+# vr 
+# sio (default)
+IO=sio;
+
+
+# Config CPU max frequency
+# Default: 1566000 (1566Mhtz)
+# Overclockable to - 1836000 (1836Mhtz)
+# for badass set to 1566mhtz (best performance/battery life)
+MAXFREQ=1566000;
+
+
+# Config CPU min frequency
+# Default: 384000 (384Mhtz)
+# Range 384000 - 1944000 (384Mhtz - 1944Mhtz)
+MINFREQ=384000;
+
+
 # Config 3D GPU clock
 # 228571000 = 228mhz
 # 266667000 = 267mhz (default)
@@ -64,6 +98,10 @@ TUN=0
 
 ################# DON'T CHANGE ANYTHING BELOW THIS LINE #################
 
+
+## Config CPU governor
+    echo "$GOV" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    echo "$GOV" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
 
 
 # Config 3D GPU setting
@@ -147,9 +185,23 @@ esac
 echo ${CUR_GOV} > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
 
-# Set min freq to 384mhtz as 192 is buggy and don't want complaints about soft reboots :)
+# Config CPU Frequency
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo $MAXFREQ > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    echo $MINFREQ > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+ 
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo $MAXFREQ > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+    echo $MINFREQ > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+
+
+# Config i/o scheduler
+    chmod 644 /sys/block/mmcblk0/queue/scheduler
+    echo "$IO" > /sys/block/mmcblk0/queue/scheduler
+    chmod 644 /sys/block/mmcblk1/queue/scheduler
+    echo "$IO" > /sys/block/mmcblk1/queue/scheduler
 
 
 # Config Fsync
