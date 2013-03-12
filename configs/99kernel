@@ -145,6 +145,8 @@ TUN=0
 	then
     		chmod 666 /sys/android_touch/sweep2wake
    		echo 2 > /sys/android_touch/sweep2wake
+                chmod 0333 /sys/devices/platform/leds-pm8058/leds/button-backlight/brightness
+                echo 0 > /sys/devices/platform/leds-pm8058/leds/button-backlight/brightness
 	fi
 
 
