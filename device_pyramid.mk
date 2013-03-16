@@ -126,8 +126,8 @@ PRODUCT_COPY_FILES +=  \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=Albinoman887 \
     ro.goo.board=pyramid \
-    ro.goo.rom=cm101kangs \
     ro.goo.version=$(shell date +%Y%m%d-%T)
+    ro.goo.rom=Albinoman887-CM10-1-Pyramid-KANG \
 
 # call the proprietary setup
 $(call inherit-product-if-exists, vendor/htc/pyramid/pyramid-vendor.mk)
