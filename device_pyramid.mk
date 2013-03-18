@@ -30,6 +30,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch
 
+# Media configuration
+PRODUCT_COPY_FILES += \
+    device/htc/pyramid/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/pyramid/configs/media_profiles.xml:system/etc/media_profiles.xml \
+    device/htc/pyramid/configs/audio_policy.conf:system/etc/audio_policy.conf
 ## The gps config appropriate for this device
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/gps.conf
 
