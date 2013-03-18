@@ -29,6 +29,8 @@
 # Bring in pyramid headers
 TARGET_SPECIFIC_HEADER_PATH := device/htc/pyramid/include
 
+# Audio
+TARGET_QCOM_AUDIO_VARIANT := legacy
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := pyramid
 
