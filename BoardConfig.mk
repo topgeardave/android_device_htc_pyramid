@@ -25,6 +25,8 @@
 # against the traditional rules of inheritance).
 
 
+# inherit from common msm8660
+-include device/htc/msm8660-common/BoardConfigCommon.mk
 
 # Bring in pyramid headers
 TARGET_SPECIFIC_HEADER_PATH := device/htc/pyramid/include
@@ -60,6 +62,3 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776192
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 838859776
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
 BOARD_FLASH_BLOCK_SIZE := 262144
-
-# inherit from common msm8660
--include device/htc/msm8660-common/BoardConfigCommon.mk
