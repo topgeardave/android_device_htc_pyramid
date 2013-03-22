@@ -28,6 +28,9 @@
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
 
+# Audio
+TARGET_QCOM_AUDIO_VARIANT := legacy
+
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := pyramid
 
