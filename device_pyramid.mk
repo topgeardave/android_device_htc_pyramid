@@ -14,17 +14,6 @@
 # limitations under the License.
 #
 
-# msm8660-common overrides #
-
-# use this section to override any build flags from msm8660-common
-# WARNING: Anything below the -include line will be overridden by 
-# msm8660.mk in the msm8660-common repo.
-
-# Media configuration
-PRODUCT_COPY_FILES += \
-    device/htc/pyramid/configs/audio_policy.conf:system/etc/audio_policy.conf
-
-### OVERRIDES END ###
 
 # common msm8660 configs
 $(call inherit-product, device/htc/msm8660-common/msm8660.mk)
