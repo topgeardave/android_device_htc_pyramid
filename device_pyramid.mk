@@ -121,8 +121,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=y
 
 #### Goo Manager support
-PRODUCT_COPY_FILES +=  \
-    device/htc/pyramid/proprietary/goo/goomanager.apk:system/app/goomanager.apk
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.goo.developerid=Albinoman887 \
