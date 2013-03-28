@@ -24,6 +24,7 @@ ro.ril.hsxpa=3
 ro.ril.set.mtu1472=1
 wifi.interface=wlan0
 ro.telephony.default_network=0
+wifi.supplicant_scan_interval=160
 #
 # Power Saving/Sleep
 #
