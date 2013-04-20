@@ -20,17 +20,6 @@
 # definition file).
 #
 
-# msm8660-common overrides #
-
-# use this section to override any build flags from msm8660-common
-# WARNING: Anything below the -include line will be overridden by 
-# BoardConfigCommon.mk in the msm8660-common repo.
-
-# Audio
-TARGET_QCOM_AUDIO_VARIANT := legacy
-
-# OVERRIDES END #
-
 # inherit from common msm8660
 -include device/htc/msm8660-common/BoardConfigCommon.mk
 
