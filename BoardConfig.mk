@@ -33,8 +33,8 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=pyramid no_console_
 
 # Kernel [Build]
 TARGET_KERNEL_CONFIG := pyramid_defconfig
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro
-TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-gcc-4.8
+TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-eabi
 BUILD_KERNEL := true
 
 # Bluetooth/Wifi
