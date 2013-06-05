@@ -27,9 +27,9 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/pyramid/overlay
 PRODUCT_PACKAGES += \
     gps.pyramid
 
-# Torch
+# FM Radio
 PRODUCT_PACKAGES += \
-    Torch
+    FMRadio
 
 ## The gps config appropriate for this device
 PRODUCT_COPY_FILES += device/common/gps/gps.conf_US:system/etc/gps.conf
