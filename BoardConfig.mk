@@ -37,6 +37,10 @@ TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-arm-cortex-a8
 TARGET_KERNEL_CUSTOM_TOOLCHAIN_SUFFIX := arm-cortex_a8-linux-gnueabi
 BUILD_KERNEL := true
 
+# Build Optimizations (linaro -O3)
+ARCH_ARM_HIGH_OPTIMIZATION := true
+ARCH_ARM_HIGH_OPTIMIZATION_COMPAT := true 
+
 # Bluetooth/Wifi
 -include device/htc/msm8660-common/bcmdhd.mk
 
