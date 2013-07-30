@@ -10,12 +10,18 @@ on early-init
     symlink /storage/sdcard0 /mnt/sdcard
     export EXTERNAL_STORAGE /storage/sdcard0
 
+on emmc-fs
+    mkdir /devlog 0700 root root
+
     # load msm8660 firmware so things have time to initialize
     rm /vendor
     mkdir /vendor 0771 system system
     mkdir /vendor/firmware 0771 system system
     mkdir /vendor/firmware/misc 0771 system system
     mkdir /vendor/firmware/adsp 0771 system system
+
+    # mount the whole thing
+    mount_all fstab.pyramid
 
     wait /dev/block/mmcblk0p17
     wait /dev/block/mmcblk0p19
@@ -47,14 +53,6 @@ on early-init
 
     # Force loading of modem and Q6 images
     write /dev/smd_pkt_loopback 1
-
-
-on init
-    mkdir /devlog 0700 root root
-
-on fs
-    # mount all mmc partitions
-    mount_all /fstab.pyramid
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
@@ -103,7 +101,6 @@ on boot
 
     # for modem link
     chown system system /sys/module/serial/parameters/modem_enabled
-
     # 4.3 requires this
     chmod 0644 /proc/cmdline
 
@@ -246,7 +243,6 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dnl80211 -iwlan0 -c /data/mis
 
 on property:ro.boot.emmc=true
     start rmt_storage
-
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
 
