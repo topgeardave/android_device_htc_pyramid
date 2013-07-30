@@ -104,6 +104,9 @@ on boot
     # for modem link
     chown system system /sys/module/serial/parameters/modem_enabled
 
+    # 4.3 requires this
+    chmod 0644 /proc/cmdline
+
     # wifi
     mkdir /data/misc 1771 system misc
     mkdir /data/misc/wifi 0770 wifi wifi
