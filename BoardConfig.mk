@@ -69,3 +69,17 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_FSTAB = device/htc/pyramid/ramdisk/fstab.pyramid
 RECOVERY_FSTAB_VERSION := 2
+
+# SELinux
+BOARD_SEPOLICY_DIRS += \
+    device/htc/pyramid/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+        device.te \
+	domain.te \
+	file_contexts \
+	file.te \
+	init.te \
+	pvrsrvinit.te \
+	system.te \
+	wpa_supplicant.te
