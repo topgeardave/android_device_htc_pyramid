@@ -49,9 +49,6 @@ on early-init
     write /dev/smd_pkt_loopback 1
 
 
-on init
-    mkdir /devlog 0700 root root
-
 on fs
     # mount all mmc partitions
     mount_all /fstab.pyramid
@@ -71,14 +68,15 @@ on fs
     symlink /system/vendor/etc/audio_policy.conf /vendor/etc/audio_policy.conf
 
 on post-fs-data
-    # double check the perms and set owner
-    chown root root /devlog
-    chmod 0700 /devlog
 
     # Set indication (checked by vold) that we have finished this action
     setprop vold.post_fs_data_done 1
 
 on boot
+
+    # for 4.3
+    chmod 0644 /proc/cmdline
+
     # for systrace
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
