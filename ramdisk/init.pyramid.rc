@@ -51,6 +51,7 @@ on early-init
 
 on fs
     # mount all mmc partitions
+    mkdir /devlog 0700 root root
     mount_all /fstab.pyramid
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
